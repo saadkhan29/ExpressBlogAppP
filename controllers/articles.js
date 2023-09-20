@@ -3,6 +3,9 @@
 // Import Article model
 const Article = require("../models/Article");
 
+// Import Moment
+const moment = require('moment');
+
 exports.article_create_get = (req, res) => {
   res.render("article/add")
 }
@@ -21,4 +24,16 @@ exports.article_create_post = (req, res) => {
     res.send("Please try again later!!!");
   })
 }
+
+
+exports.article_index_get = (req, res) => {
+  Article.find()
+  .then( (articles) => {
+    res.render("article/index", {articles, moment})
+  })
+  .catch( (err) => {
+    console.log(err);
+  })
+}
+
 
