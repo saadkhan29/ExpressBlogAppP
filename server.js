@@ -2,7 +2,10 @@
 const express = require('express');
 
 // Load mongoose module
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+
+// Load Express EJS Layouts
+const expressLayouts = require("express-ejs-layouts");
 
 // Invoke express functionality
 const app = express();
@@ -12,6 +15,9 @@ const port = 4000;
 
 // NodeJS to look in a folder called "views" for all ejs file.
 app.set("view engine", "ejs");
+
+// Look in views folder for a file named as layout.ejs
+app.use(expressLayouts);
 
 // Import Routes
 const indexRouter = require('./routes/index');
@@ -37,6 +43,9 @@ mongoose.connect("mongodb+srv://admin:admin@sei-06.51rhr3h.mongodb.net/blogapp?r
 });
 
 
+// app.get("/a", (req, res) => {
+//   res.render("home/another")
+// })
 
 
 
