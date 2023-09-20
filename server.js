@@ -10,6 +10,9 @@ const app = express();
 // Port configurations
 const port = 4000; 
 
+// NodeJS to look in a folder called "views" for all ejs file.
+app.set("view engine", "ejs");
+
 // Import Routes
 const indexRouter = require('./routes/index');
 
