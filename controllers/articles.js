@@ -36,4 +36,27 @@ exports.article_index_get = (req, res) => {
   })
 }
 
+exports.article_show_get = (req, res) => {
+  console.log(req.query.id);
+  Article
+  .findById(req.query.id)
+  .then( (article) => {
+    res.render("article/detail", {article, moment});
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+}
+
+exports.article_delete_get = (req, res) =>{
+  console.log(req.query.id)
+  Article.findByIdAndDelete(req.query.id)
+  .then(() => {
+    res.redirect("/article/index")
+  })
+  .catch( (err) => {
+    console.log(err)
+  })
+}
+
 
