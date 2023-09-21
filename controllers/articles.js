@@ -60,3 +60,25 @@ exports.article_delete_get = (req, res) =>{
 }
 
 
+exports.article_edit_get = (req, res) => {
+  console.log(req.query.id);
+  Article.findById(req.query.id)
+  .then((article) => {
+    res.render("article/edit", {article})
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+}
+
+exports.article_update_post = (req, res) => {
+  console.log(req.body.id)
+  Article.findByIdAndUpdate(req.body.id, req.body)
+  .then(() => {
+    res.redirect("/article/index")
+  })
+  .catch( (err) => {
+    console.log(err)
+  })
+}
+

@@ -10,6 +10,9 @@ const expressLayouts = require("express-ejs-layouts");
 // Invoke express functionality
 const app = express();
 
+// Look for static files here (CSS, JS, Image, Video, Audio)
+app.use(express.static("public"))
+
 // Port configurations
 const port = 4000; 
 

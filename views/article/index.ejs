@@ -27,7 +27,7 @@
     <td> <%= article.author %> </td>
     <td> <%= moment(article.createdAt).fromNow() %> </td>
     <td> <%= moment(article.updatedAt).fromNow() %> </td>
-    <td> <a href=""> Edit </a> </td>
+    <td> <a href="/article/edit?id=<%= article._id %>"> Edit </a> </td>
     <td> <a href="/article/delete?id=<%= article._id %>"> Delete </a> </td>
 
     <!-- <td>
