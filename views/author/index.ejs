@@ -1,0 +1,25 @@
+<h1> Authors </h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email Address</th>
+    <th>Phone Number</th>
+  </tr>
+
+  <% authors.forEach(function(author)) { %>
+
+    <tr>
+      <td>
+        <a href="/author/detail?id=<%= author._id %>"><%= author.name %></a>
+      </td>
+      <td> <%= author.emailAddress %> </td>
+      <td> <%= author.phoneNumber %> </td>
+    </tr>
+
+
+
+
+  <% } %>
+
+</table>
