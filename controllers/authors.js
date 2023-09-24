@@ -40,7 +40,7 @@ exports.author_index_get = (req, res) => {
 exports.author_show_get = (req, res) => {
   console.log(req.query.id);
   Author
-  .findById(req.query.id)
+  .findById(req.query.id).populate('article')
   .then( (author) => {
     res.render("author/detail", {author, moment});
   })

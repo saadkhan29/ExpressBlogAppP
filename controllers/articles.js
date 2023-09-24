@@ -113,3 +113,10 @@ exports.article_update_post = (req, res) => {
   })
 }
 
+
+
+// LAB - 30 mins
+
+// 1. Display Author's information e.g. Author's Name, Email Address, Phone Number in Article Details web page 
+
+// 2. Display Article's Information e.g. Title and content in Authors Details web page.
