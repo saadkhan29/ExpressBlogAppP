@@ -1,8 +1,8 @@
 // API's
 
-// Import Article model
+// Import Article, Author model
 const {Article} = require("../models/Article");
-const {Author} = require("../models/Article");
+const {Author} = require("../models/Author");
 
 // Import Moment
 const moment = require('moment');
@@ -24,24 +24,24 @@ exports.article_create_post = (req, res) => {
 
   let article = new Article(req.body);
 
-  // article.save()
-  // .then(() => {
-  //   res.redirect("/article/index");
-  // })
-  // .catch((err) => {
-  //   console.log(err);
-  //   res.send("Please try again later!!!");
-  // })
-
-  Author.findById(req.body.author)
-  .then((author) => {
-    author.article.push(article);
-    author.save();
-    res.redirect("/author/index");
+  article.save()
+  .then(() => {
+    res.redirect("/article/index");
   })
   .catch((err) => {
-    console.log(err)
-  });
+    console.log(err);
+    res.send("Please try again later!!!");
+  })
+
+  // Author.findById(req.body.author)
+  // .then((author) => {
+  //   author.article.push(article);
+  //   author.save();
+  //   res.redirect("/author/index");
+  // })
+  // .catch((err) => {
+  //   console.log(err)
+  // });
 }
 
 
