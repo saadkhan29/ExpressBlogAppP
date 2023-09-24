@@ -2,12 +2,21 @@
 
 // Import Article model
 const {Article} = require("../models/Article");
+const {Author} = require("../models/Article");
 
 // Import Moment
 const moment = require('moment');
 
 exports.article_create_get = (req, res) => {
-  res.render("article/add")
+Author.find()
+.then((authors) => {
+  res.render("article/add", {authors});
+})
+.catch((err) => {
+  console.log(err);
+})
+
+ 
 }
 
 exports.article_create_post = (req, res) => {

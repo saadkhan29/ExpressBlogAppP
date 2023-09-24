@@ -1,13 +1,13 @@
 <h1> Authors </h1>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>Name</th>
     <th>Email Address</th>
     <th>Phone Number</th>
   </tr>
 
-  <% authors.forEach(function(author)) { %>
+  <% authors.forEach(function(author) { %>
 
     <tr>
       <td>
@@ -16,10 +16,6 @@
       <td> <%= author.emailAddress %> </td>
       <td> <%= author.phoneNumber %> </td>
     </tr>
-
-
-
-
-  <% } %>
+  <% }) %>
 
 </table>
