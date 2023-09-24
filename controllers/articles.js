@@ -26,6 +26,18 @@ exports.article_create_post = (req, res) => {
 
   article.save()
   .then(() => {
+    // res.redirect("/article/index");
+
+    req.body.author.forEach(author => {
+      Author.findById(author)
+      .then((author) => {
+        author.article.push(article);
+        author.save();
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    })
     res.redirect("/article/index");
   })
   .catch((err) => {
