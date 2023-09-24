@@ -4,7 +4,11 @@ const mongoose = require('mongoose')
 const authorSchema = mongoose.Schema({
   name : String,
   emailAddress : String,
-  phoneNumber : String
+  phoneNumber : String,
+  article: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Article'
+  }]
 }, {
 timestamps : true
 })

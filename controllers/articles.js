@@ -46,7 +46,7 @@ exports.article_create_post = (req, res) => {
 
 
 exports.article_index_get = (req, res) => {
-  Article.find()
+  Article.find().populate('author')
   .then( (articles) => {
     res.render("article/index", {articles, moment})
   })
@@ -58,7 +58,7 @@ exports.article_index_get = (req, res) => {
 exports.article_show_get = (req, res) => {
   console.log(req.query.id);
   Article
-  .findById(req.query.id)
+  .findById(req.query.id).populate('author')
   .then( (article) => {
     res.render("article/detail", {article, moment});
   })

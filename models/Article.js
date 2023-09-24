@@ -6,10 +6,10 @@ const articleSchema = mongoose.Schema({
   content: String,
   isPublished: Boolean,
   totalWords: Number,
-  author: {
+  author: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Author'
-  }
+  }]
   // author: String,
   // createdAt: Date,
   // updateAt: Date
