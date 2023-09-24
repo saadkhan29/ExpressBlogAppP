@@ -6,6 +6,10 @@ const articleSchema = mongoose.Schema({
   content: String,
   isPublished: Boolean,
   totalWords: Number,
+  author: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Author'
+  }
   // author: String,
   // createdAt: Date,
   // updateAt: Date
@@ -17,17 +21,5 @@ const articleSchema = mongoose.Schema({
 const Article = mongoose.model("Article", articleSchema);
 
 
-// Author Model
-const authorSchema = mongoose.Schema({
-    name : String,
-    emailAddress : String,
-    phoneNumber : String,
-    article : [articleSchema]
-}, {
-  timestamps : true
-})
-
-const Author = mongoose.model("Author", authorSchema);
-
-module.exports = {Article, Author};
+module.exports = {Article};
 

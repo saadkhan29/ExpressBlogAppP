@@ -38,7 +38,7 @@ app.listen(port, () => {
 });
 
 // MongoDB Connection
-mongoose.connect("mongodb+srv://admin:admin@sei-06.51rhr3h.mongodb.net/blogapp1ME?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://admin:admin@sei-06.51rhr3h.mongodb.net/blogapp1MR?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })

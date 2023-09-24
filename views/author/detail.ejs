@@ -1,0 +1,21 @@
+<div>
+  <div>
+    <h3><%= author.name %></h3>
+
+    <div>Email Address: <%= author.emailAddress %> </div>
+    <div>Phone Number: <%= author.phoneNumber %> </div>
+    <div>Created At: <%= moment(author.createdAt).fromNow() %> </div>
+  </div>
+
+  <br>
+  <% author.article.forEach((article) => { %>
+
+    <hr>
+    <div>
+      <div>Article: <%= article.title %></div>
+      <div>Content: <%= article.content %></div>
+    </div>
+
+  <% }) %>
+
+</div>

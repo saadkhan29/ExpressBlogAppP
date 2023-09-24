@@ -24,14 +24,24 @@ exports.article_create_post = (req, res) => {
 
   let article = new Article(req.body);
 
-  article.save()
-  .then(() => {
-    res.redirect("/article/index");
+  // article.save()
+  // .then(() => {
+  //   res.redirect("/article/index");
+  // })
+  // .catch((err) => {
+  //   console.log(err);
+  //   res.send("Please try again later!!!");
+  // })
+
+  Author.findById(req.body.author)
+  .then((author) => {
+    author.article.push(article);
+    author.save();
+    res.redirect("/author/index");
   })
   .catch((err) => {
-    console.log(err);
-    res.send("Please try again later!!!");
-  })
+    console.log(err)
+  });
 }
 
 

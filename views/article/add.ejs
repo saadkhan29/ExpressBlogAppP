@@ -24,7 +24,7 @@
 
   <div class="form-group">
     <label>Author</label>
-    <select name="author" id="author">
+    <select name="author" id="author" class="form-control">
       <% authors.forEach(function(author){ %>
         <option value="<%= author._id %>"><%= author.name %></option>
       <% }) %>
