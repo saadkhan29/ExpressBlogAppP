@@ -25,10 +25,12 @@ app.use(expressLayouts);
 // Import Routes
 const indexRouter = require('./routes/index');
 const articleRouter = require('./routes/articles');
+const authorRouter = require('./routes/authors');
 
 // Mount Routes
-app.use("/", indexRouter)
-app.use("/", articleRouter)
+app.use("/", indexRouter);
+app.use("/", articleRouter);
+app.use("/", authorRouter);
 
 // Listen to requests on port
 app.listen(port, () => {

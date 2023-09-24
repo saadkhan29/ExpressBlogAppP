@@ -1,7 +1,7 @@
 // API's
 
 // Import Article model
-const Article = require("../models/Article");
+const {Article} = require("../models/Article");
 
 // Import Moment
 const moment = require('moment');
