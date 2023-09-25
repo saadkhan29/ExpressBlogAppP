@@ -40,6 +40,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Sharing user information with all pages.
+app.use(function(req, res, next){
+  res.locals.currentUser = req.user;
+  next();
+})
+
 // Import Routes
 const indexRouter = require('./routes/index');
 const articleRouter = require('./routes/articles');

@@ -10,8 +10,11 @@ router.use(express.urlencoded({ extended: true}));
 // Controller
 const authorCtrl = require("../controllers/authors");
 
+// Require isLoggedIn Middleware
+const isLoggedIn = require("../helper/isLoggedIn");
+
 // Routes
-router.get("/author/add", authorCtrl.author_create_get);
+router.get("/author/add", isLoggedIn, authorCtrl.author_create_get);
 router.post("/author/add", authorCtrl.author_create_post);
 router.get("/author/index", authorCtrl.author_index_get);
 router.get("/author/detail", authorCtrl.author_show_get);

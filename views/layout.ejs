@@ -20,8 +20,15 @@
   <a href="/author/index" class="btn btn-outline-primary">Authors</a>
   <a href="/author/add" class="btn btn-outline-primary">Add Author</a>
 
-  <a href="/auth/signin" class="btn btn-outline-primary">Signin</a>
-  <a href="/auth/signup" class="btn btn-outline-primary">Create new Account</a>
+
+  <a href="/auth/logout" class="btn btn-outline-primary">Logout</a>
+
+  <% if(currentUser) { %>
+    Hi <%= currentUser.firstName %> <%= currentUser.lastName %>
+  <% } else { %>
+    <a href="/auth/signin" class="btn btn-outline-primary">Signin</a>
+    <a href="/auth/signup" class="btn btn-outline-primary">Create new Account</a>
+  <%  } %>
 </nav>
 
     <%- body %>

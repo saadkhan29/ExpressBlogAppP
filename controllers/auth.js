@@ -50,3 +50,10 @@ passport.authenticate("local", {
 })
 
 // HTTP GET - Logout Route - To logout the user
+exports.auth_logout_get = (req, res) =>{
+  // Invalidates the session
+  req.logout(function (err) { 
+    if(err) { return next(err); }
+    res.redirect("/auth/signin")
+   })
+}
