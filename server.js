@@ -25,6 +25,21 @@ app.set("view engine", "ejs");
 // Look in views folder for a file named as layout.ejs
 app.use(expressLayouts);
 
+// Express Session and Passport
+let session = require('express-session');
+let passport = require('./helper/ppConfig');
+
+app.use(session({
+  secret: process.env.SECRET,
+  saveUninitialized: true,
+  resave: false,
+  cookie: {maxAge: 36000000}
+}))
+
+// Initialize passport and passport session
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Import Routes
 const indexRouter = require('./routes/index');
 const articleRouter = require('./routes/articles');
