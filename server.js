@@ -1,6 +1,9 @@
 // Load express module
 const express = require('express');
 
+// Load dotenv module
+require('dotenv').config();
+
 // Load mongoose module
 const mongoose = require('mongoose');
 
@@ -14,7 +17,7 @@ const app = express();
 app.use(express.static("public"))
 
 // Port configurations
-const port = 4000; 
+const port = process.env.PORT; 
 
 // NodeJS to look in a folder called "views" for all ejs file.
 app.set("view engine", "ejs");
@@ -38,7 +41,7 @@ app.listen(port, () => {
 });
 
 // MongoDB Connection
-mongoose.connect("mongodb+srv://admin:admin@sei-06.51rhr3h.mongodb.net/blogappMMR?retryWrites=true&w=majority", {
+mongoose.connect(process.env.mongoDBURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
